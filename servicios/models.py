@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from email.headerregistry import ContentDispositionHeader
 from pyexpat import model
 from tabnanny import verbose
@@ -9,7 +10,7 @@ from django.db import models
 class Servicio(models.Model):
     titulo=models.CharField(max_length=50)
     contenido=models.CharField(max_length=50)
-    imagen=models.ImageField()
+    imagen=models.ImageField(upload_to='servicios')
     created=models.DateTimeField(auto_now_add=True) #fecha en la que se creo un servicio
     update=models.DateTimeField(auto_now_add=True) #fecha en la que se modifica
 
